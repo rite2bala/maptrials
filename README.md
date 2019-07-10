@@ -1,2 +1,0 @@
-# maptrials
-Created with CodeSandbox
