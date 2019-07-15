@@ -51,6 +51,8 @@ export default function MenuAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="Menu"
+            open={open}
+            onClose={handleClose}
           >
             <MenuIcon />
           </IconButton>
