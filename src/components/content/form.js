@@ -10,6 +10,7 @@ import Fab from "@material-ui/core/Fab";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { CountryDropdown } from "react-country-region-selector";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -45,15 +46,24 @@ const currencies = [
     label: "No"
   }
 ];
+var Country: "";
 export default function TextFields() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
+    Product: "",
+    Strength: "",
+    Unit: "",
+    Molecule: "",
+    PackSize: "",
+    Franchise: "",
+    Country: "",
+    Source: "",
+    BulkMaterialCode: "",
+    MARSCode: "",
+    FisherPartNumber: "",
+    Owner: "",
+    ExpiryDate: ""
   });
-
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -65,66 +75,75 @@ export default function TextFields() {
         <div style={{ gridColumnEnd: "span 3" }}>
           <h1 style={{ color: "teal" }}>New request for central repository</h1>
           <form className={classes.container} autoComplete="off">
-            <Grid item xs={3}>
-              <TextField
-                id="CreateDate"
-                label="Request creation date"
-                type="date"
-                defaultValue={today}
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true
-                }}
-                onChangeCapture
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                id="Product"
-                label="Product Name"
-                className={classes.textField}
-                value=""
-                onChange={handleChange("Product")}
-                margin="normal"
-              />
-            </Grid>
+            <TextField
+              id="CreateDate"
+              label="Request creation date"
+              type="date"
+              defaultValue={today}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true
+              }}
+              margin="normal"
+              onChangeCapture
+            />
+
+            <TextField
+              id="Product"
+              label="Product Name"
+              className={classes.textField}
+              value={values.Product}
+              onChange={handleChange("Product")}
+              margin="normal"
+            />
+
             <TextField
               id="Strength"
               label="Strength of product"
               className={classes.textField}
-              value=""
+              value={values.Strength}
               onChange={handleChange("Strength")}
               margin="normal"
             />
             <TextField
-              id="Presentation"
+              id="Unit"
               label="Presentation (Unit)"
               className={classes.textField}
-              value=""
-              onChange={handleChange("Presentation")}
+              value={values.Unit}
+              onChange={handleChange("Unit")}
               margin="normal"
             />
             <TextField
               id="Molecule"
               label="Molecule"
               className={classes.textField}
-              value=""
+              value={values.Molecule}
               onChange={handleChange("Molecule")}
               margin="normal"
             />
             <TextField
               id="PackSize"
               label="PackSize"
-              value=""
+              value={values.PackSize}
               onChange={handleChange("PackSize")}
               type="number"
+              defaultValue="1"
               className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              value={Country}
+              id="Country"
+              label="Country"
+              value={values.Country}
+              className={classes.textField}
+              onChange={handleChange("Country")}
               margin="normal"
             />
             <TextField
               id="Franchise"
               label="Franchise"
-              value={values.age}
+              value={values.Franchise}
               onChange={handleChange("Franchise")}
               className={classes.textField}
               margin="normal"
@@ -132,7 +151,7 @@ export default function TextFields() {
             <TextField
               id="Source"
               label="Source"
-              value={values.age}
+              value={values.Source}
               onChange={handleChange("Source")}
               className={classes.textField}
               margin="normal"
@@ -142,6 +161,7 @@ export default function TextFields() {
               label="Expiry Date"
               type="date"
               className={classes.textField}
+              margin="normal"
               InputLabelProps={{
                 shrink: true
               }}
@@ -183,7 +203,7 @@ export default function TextFields() {
               select
               label="Active Indicator"
               className={classes.textField}
-              value={values.currency}
+              value={values.ActiveInd}
               onChange={handleChange("ActiveInd")}
               SelectProps={{
                 MenuProps: {
