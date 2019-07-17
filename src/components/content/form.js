@@ -46,7 +46,6 @@ const currencies = [
     label: "No"
   }
 ];
-var Country: "";
 export default function TextFields() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
@@ -132,7 +131,6 @@ export default function TextFields() {
               margin="normal"
             />
             <TextField
-              value={Country}
               id="Country"
               label="Country"
               value={values.Country}
