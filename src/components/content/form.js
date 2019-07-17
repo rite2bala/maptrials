@@ -6,11 +6,9 @@ import "date-fns";
 //import Grid from '@material-ui/core/Grid';
 //import Button from '@material-ui/core/Button';
 import Fab from "@material-ui/core/Fab";
-
+//import { config } from "./config.json";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { CountryDropdown } from "react-country-region-selector";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -36,14 +34,48 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const currencies = [
+const Country = [
   {
-    value: "Yes",
-    label: "Yes"
+    value: "India",
+    label: "India"
   },
   {
-    value: "No",
-    label: "No"
+    value: "Spain",
+    label: "Spain"
+  },
+  {
+    value: "Switzerland",
+    label: "Switzerland"
+  },
+
+  {
+    value: "Croatia",
+    label: "Croatia"
+  },
+  {
+    value: "Korea",
+    label: "Korea"
+  },
+  {
+    value: "Peru",
+    label: "Peru"
+  },
+  {
+    value: "Greece",
+    label: "Greece"
+  },
+  {
+    value: "Italy",
+    label: "Italy"
+  },
+  {
+    value: "Germany",
+    label: "Germany"
+  },
+
+  {
+    value: "Others",
+    label: "Others"
   }
 ];
 export default function TextFields() {
@@ -167,23 +199,23 @@ export default function TextFields() {
             <TextField
               id="BulkMatCode"
               label="Bulk Material Code"
-              value=""
+              value={values.BulkMatCode}
               onChange={handleChange("BulkMatCode")}
               className={classes.textField}
               margin="normal"
             />
             <TextField
-              id="FisherPartNum"
+              id="FisherPartNumber"
               label="Fisher Part Number"
-              value=""
-              onChange={handleChange("FisherPartNum")}
+              value={values.FisherPartNumber}
+              onChange={handleChange("FisherPartNumber")}
               className={classes.textField}
               margin="normal"
             />
             <TextField
               id="Owner"
               label="Owner"
-              value=""
+              value={values.Owner}
               onChange={handleChange("Owner")}
               className={classes.textField}
               margin="normal"
@@ -191,18 +223,18 @@ export default function TextFields() {
             <TextField
               id="Status"
               label="Status"
-              value=""
+              value={values.Status}
               onChange={handleChange("Status")}
               className={classes.textField}
               margin="normal"
             />
             <TextField
-              id="ActiveInd"
+              id="Country"
               select
-              label="Active Indicator"
+              label="Country"
               className={classes.textField}
-              value={values.ActiveInd}
-              onChange={handleChange("ActiveInd")}
+              value={values.Country}
+              onChange={handleChange("Country")}
               SelectProps={{
                 MenuProps: {
                   className: classes.menu
@@ -211,7 +243,7 @@ export default function TextFields() {
               helperText="Please select your response"
               margin="normal"
             >
-              {currencies.map(option => (
+              {Country.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
