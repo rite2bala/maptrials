@@ -4,8 +4,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import "date-fns";
 //import Grid from '@material-ui/core/Grid';
-//import Button from '@material-ui/core/Button';
-import Fab from "@material-ui/core/Fab";
+import Button from "@material-ui/core/Button";
+//import Fab from "@material-ui/core/Fab";
 //import { config } from "./config.json";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -161,6 +161,7 @@ export default function TextFields() {
               defaultValue="1"
               className={classes.textField}
               margin="normal"
+              helperText="Number of packs"
             />
             <TextField
               id="Country"
@@ -250,14 +251,14 @@ export default function TextFields() {
               ))}
             </TextField>
           </form>
-          <Fab
-            variant="extended"
-            aria-label="Delete"
+          <Button
+            variant="contained"
             color="primary"
-            className={classes.fab}
+            className={classes.button}
+            size="inherit"
           >
             Submit
-          </Fab>
+          </Button>{" "}
         </div>
       </Container>
     </React.Fragment>

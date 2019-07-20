@@ -14,6 +14,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 const drawerWidth = 200;
 
@@ -78,6 +79,9 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const handleClickAway = () => {
+    setOpen(false);
+  };
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -87,65 +91,72 @@ export default function PersistentDrawerLeft() {
   }
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Managed Access Program - Blockchain
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {["New Request", "Open Request", "Closed Reqests", "Statistics"].map(
-            text => (
+    <ClickAwayListener onClickAway={handleClickAway}>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              Managed Access Program - Blockchain
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            {[
+              "New Request",
+              "Open Request",
+              "Closed Reqests",
+              "Statistics"
+            ].map(text => (
               <ListItem button key={text}>
                 <ListItemText primary={text} />
               </ListItem>
-            )
-          )}
-        </List>
-      </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
-      >
-        <div className={classes.drawerHeader} />
-      </main>
-    </div>
+            ))}
+          </List>
+        </Drawer>
+
+        <main
+          className={clsx(classes.content, {
+            [classes.contentShift]: open
+          })}
+        >
+          <div className={classes.drawerHeader} />
+        </main>
+      </div>
+    </ClickAwayListener>
   );
 }
