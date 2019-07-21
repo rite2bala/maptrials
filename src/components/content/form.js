@@ -78,10 +78,64 @@ const Country = [
     label: "Others"
   }
 ];
+const Source = [
+  {
+    value: "GCS",
+    label: "GCS"
+  },
+  {
+    value: "NTO",
+    label: "NTO"
+  }
+];
+
+const Owner = [
+  {
+    value: "HCP",
+    label: "HCP"
+  },
+  {
+    value: "Patient",
+    label: "Patient"
+  },
+  {
+    value: "CPO",
+    label: "CPO"
+  }
+];
+const Status = [
+  {
+    value: "Available",
+    label: "Available"
+  },
+  {
+    value: "Allocated",
+    label: "Allocated"
+  },
+  {
+    value: "Expired",
+    label: "Expired"
+  },
+  {
+    value: "InTransit",
+    label: "In Transit"
+  },
+  {
+    value: "Delivered",
+    label: "Delivered"
+  }
+];
+
+const uuidv4 = require("uuid/v4");
+const today = new Date().toISOString().substring(0, 10);
+
 export default function TextFields() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
+    CreateDate: today,
+    DrugSystemIdentifier: uuidv4(),
     Product: "",
+
     Strength: "",
     Unit: "",
     Molecule: "",
@@ -93,12 +147,19 @@ export default function TextFields() {
     MARSCode: "",
     FisherPartNumber: "",
     Owner: "",
-    ExpiryDate: ""
+    ExpiryDate: "",
+    Status: ""
   });
+
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const today = new Date().toISOString().substring(0, 10);
+
+  var data = JSON.stringify(values, null, 2);
+  function handleClick() {
+    alert(`You Submitted \n\n${data}`);
+  }
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -107,19 +168,7 @@ export default function TextFields() {
           <h1 style={{ color: "teal" }}>New request for central repository</h1>
           <form className={classes.container} autoComplete="off">
             <TextField
-              id="CreateDate"
-              label="Request creation date"
-              type="date"
-              defaultValue={today}
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true
-              }}
-              margin="normal"
-              onChangeCapture
-            />
-
-            <TextField
+              required
               id="Product"
               label="Product Name"
               className={classes.textField}
@@ -129,6 +178,7 @@ export default function TextFields() {
             />
 
             <TextField
+              required
               id="Strength"
               label="Strength of product"
               className={classes.textField}
@@ -137,6 +187,7 @@ export default function TextFields() {
               margin="normal"
             />
             <TextField
+              required
               id="Unit"
               label="Presentation (Unit)"
               className={classes.textField}
@@ -145,6 +196,7 @@ export default function TextFields() {
               margin="normal"
             />
             <TextField
+              required
               id="Molecule"
               label="Molecule"
               className={classes.textField}
@@ -153,6 +205,7 @@ export default function TextFields() {
               margin="normal"
             />
             <TextField
+              required
               id="PackSize"
               label="PackSize"
               value={values.PackSize}
@@ -164,14 +217,7 @@ export default function TextFields() {
               helperText="Number of packs"
             />
             <TextField
-              id="Country"
-              label="Country"
-              value={values.Country}
-              className={classes.textField}
-              onChange={handleChange("Country")}
-              margin="normal"
-            />
-            <TextField
+              required
               id="Franchise"
               label="Franchise"
               value={values.Franchise}
@@ -180,56 +226,7 @@ export default function TextFields() {
               margin="normal"
             />
             <TextField
-              id="Source"
-              label="Source"
-              value={values.Source}
-              onChange={handleChange("Source")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              id="date"
-              label="Expiry Date"
-              type="date"
-              className={classes.textField}
-              margin="normal"
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-            <TextField
-              id="BulkMatCode"
-              label="Bulk Material Code"
-              value={values.BulkMatCode}
-              onChange={handleChange("BulkMatCode")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              id="FisherPartNumber"
-              label="Fisher Part Number"
-              value={values.FisherPartNumber}
-              onChange={handleChange("FisherPartNumber")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              id="Owner"
-              label="Owner"
-              value={values.Owner}
-              onChange={handleChange("Owner")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              id="Status"
-              label="Status"
-              value={values.Status}
-              onChange={handleChange("Status")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
+              required
               id="Country"
               select
               label="Country"
@@ -250,15 +247,123 @@ export default function TextFields() {
                 </MenuItem>
               ))}
             </TextField>
+            <TextField
+              required
+              id="Source"
+              select
+              label="Source"
+              className={classes.textField}
+              value={values.Source}
+              onChange={handleChange("Source")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              helperText="Please select your response"
+              margin="normal"
+            >
+              {Source.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              required
+              id="BulkMatCode"
+              label="Bulk Material Code"
+              value={values.BulkMatCode}
+              onChange={handleChange("BulkMatCode")}
+              className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              required
+              id="MARSCode"
+              label="MARS Code"
+              value={values.MARSCode}
+              onChange={handleChange("MARSCode")}
+              className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              required
+              id="FisherPartNumber"
+              label="Fisher Part Number"
+              value={values.FisherPartNumber}
+              onChange={handleChange("FisherPartNumber")}
+              className={classes.textField}
+              margin="normal"
+            />
+
+            <TextField
+              required
+              id="date"
+              label="Expiry Date"
+              type="date"
+              className={classes.textField}
+              margin="normal"
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+
+            <TextField
+              required
+              id="Owner"
+              select
+              label="Owner"
+              className={classes.textField}
+              value={values.Owner}
+              onChange={handleChange("Owner")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              helperText="Please select your response"
+              margin="normal"
+            >
+              {Owner.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              required
+              id="Status"
+              select
+              label="Status"
+              className={classes.textField}
+              value={values.Status}
+              onChange={handleChange("Status")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              helperText="Please select your response"
+              margin="normal"
+            >
+              {Status.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
           </form>
           <Button
             variant="contained"
             color="primary"
             className={classes.button}
             size="inherit"
+            onClick={handleClick}
           >
             Submit
-          </Button>{" "}
+          </Button>
         </div>
       </Container>
     </React.Fragment>
