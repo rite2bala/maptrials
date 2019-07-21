@@ -163,209 +163,207 @@ export default function TextFields() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
-        <div style={{ gridColumnEnd: "span 3" }}>
-          <h1 style={{ color: "teal" }}>New request for central repository</h1>
-          <form className={classes.container} autoComplete="off">
-            <TextField
-              required
-              id="Product"
-              label="Product Name"
-              className={classes.textField}
-              value={values.Product}
-              onChange={handleChange("Product")}
-              margin="normal"
-            />
+      <div style={{ gridColumnEnd: "span 3" }}>
+        <h1 style={{ color: "teal" }}>New request for central repository</h1>
+        <form className={classes.container} autoComplete="off">
+          <TextField
+            required
+            id="Product"
+            label="Product Name"
+            className={classes.textField}
+            value={values.Product}
+            onChange={handleChange("Product")}
+            margin="normal"
+          />
 
-            <TextField
-              required
-              id="Strength"
-              label="Strength of product"
-              className={classes.textField}
-              value={values.Strength}
-              onChange={handleChange("Strength")}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="Unit"
-              label="Presentation (Unit)"
-              className={classes.textField}
-              value={values.Unit}
-              onChange={handleChange("Unit")}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="Molecule"
-              label="Molecule"
-              className={classes.textField}
-              value={values.Molecule}
-              onChange={handleChange("Molecule")}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="PackSize"
-              label="PackSize"
-              value={values.PackSize}
-              onChange={handleChange("PackSize")}
-              type="number"
-              defaultValue="1"
-              className={classes.textField}
-              margin="normal"
-              helperText="Number of packs"
-            />
-            <TextField
-              required
-              id="Franchise"
-              label="Franchise"
-              value={values.Franchise}
-              onChange={handleChange("Franchise")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="Country"
-              select
-              label="Country"
-              className={classes.textField}
-              value={values.Country}
-              onChange={handleChange("Country")}
-              SelectProps={{
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              helperText="Please select your response"
-              margin="normal"
-            >
-              {Country.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              required
-              id="Source"
-              select
-              label="Source"
-              className={classes.textField}
-              value={values.Source}
-              onChange={handleChange("Source")}
-              SelectProps={{
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              helperText="Please select your response"
-              margin="normal"
-            >
-              {Source.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              required
-              id="BulkMatCode"
-              label="Bulk Material Code"
-              value={values.BulkMatCode}
-              onChange={handleChange("BulkMatCode")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="MARSCode"
-              label="MARS Code"
-              value={values.MARSCode}
-              onChange={handleChange("MARSCode")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="FisherPartNumber"
-              label="Fisher Part Number"
-              value={values.FisherPartNumber}
-              onChange={handleChange("FisherPartNumber")}
-              className={classes.textField}
-              margin="normal"
-            />
-
-            <TextField
-              required
-              id="date"
-              label="Expiry Date"
-              type="date"
-              className={classes.textField}
-              margin="normal"
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-
-            <TextField
-              required
-              id="Owner"
-              select
-              label="Owner"
-              className={classes.textField}
-              value={values.Owner}
-              onChange={handleChange("Owner")}
-              SelectProps={{
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              helperText="Please select your response"
-              margin="normal"
-            >
-              {Owner.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <TextField
-              required
-              id="Status"
-              select
-              label="Status"
-              className={classes.textField}
-              value={values.Status}
-              onChange={handleChange("Status")}
-              SelectProps={{
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              helperText="Please select your response"
-              margin="normal"
-            >
-              {Status.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </form>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            size="inherit"
-            onClick={handleClick}
+          <TextField
+            required
+            id="Strength"
+            label="Strength of product"
+            className={classes.textField}
+            value={values.Strength}
+            onChange={handleChange("Strength")}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="Unit"
+            label="Presentation (Unit)"
+            className={classes.textField}
+            value={values.Unit}
+            onChange={handleChange("Unit")}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="Molecule"
+            label="Molecule"
+            className={classes.textField}
+            value={values.Molecule}
+            onChange={handleChange("Molecule")}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="PackSize"
+            label="PackSize"
+            value={values.PackSize}
+            onChange={handleChange("PackSize")}
+            type="number"
+            defaultValue="1"
+            className={classes.textField}
+            margin="normal"
+            helperText="Number of packs"
+          />
+          <TextField
+            required
+            id="Franchise"
+            label="Franchise"
+            value={values.Franchise}
+            onChange={handleChange("Franchise")}
+            className={classes.textField}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="Country"
+            select
+            label="Country"
+            className={classes.textField}
+            value={values.Country}
+            onChange={handleChange("Country")}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu
+              }
+            }}
+            helperText="Please select your response"
+            margin="normal"
           >
-            Submit
-          </Button>
-        </div>
-      </Container>
+            {Country.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            required
+            id="Source"
+            select
+            label="Source"
+            className={classes.textField}
+            value={values.Source}
+            onChange={handleChange("Source")}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu
+              }
+            }}
+            helperText="Please select your response"
+            margin="normal"
+          >
+            {Source.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            required
+            id="BulkMatCode"
+            label="Bulk Material Code"
+            value={values.BulkMatCode}
+            onChange={handleChange("BulkMatCode")}
+            className={classes.textField}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="MARSCode"
+            label="MARS Code"
+            value={values.MARSCode}
+            onChange={handleChange("MARSCode")}
+            className={classes.textField}
+            margin="normal"
+          />
+          <TextField
+            required
+            id="FisherPartNumber"
+            label="Fisher Part Number"
+            value={values.FisherPartNumber}
+            onChange={handleChange("FisherPartNumber")}
+            className={classes.textField}
+            margin="normal"
+          />
+
+          <TextField
+            required
+            id="date"
+            label="Expiry Date"
+            type="date"
+            className={classes.textField}
+            margin="normal"
+            InputLabelProps={{
+              shrink: true
+            }}
+          />
+
+          <TextField
+            required
+            id="Owner"
+            select
+            label="Owner"
+            className={classes.textField}
+            value={values.Owner}
+            onChange={handleChange("Owner")}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu
+              }
+            }}
+            helperText="Please select your response"
+            margin="normal"
+          >
+            {Owner.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            required
+            id="Status"
+            select
+            label="Status"
+            className={classes.textField}
+            value={values.Status}
+            onChange={handleChange("Status")}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu
+              }
+            }}
+            helperText="Please select your response"
+            margin="normal"
+          >
+            {Status.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </form>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          size="inherit"
+          onClick={handleClick}
+        >
+          Submit
+        </Button>
+      </div>
     </React.Fragment>
   );
 }

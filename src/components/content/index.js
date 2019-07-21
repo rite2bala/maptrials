@@ -1,7 +1,9 @@
 import React from "react";
 //import DenseTable from "./datatable";
-import TextFields from "./form";
+//import TextFields from "./form";
 
-export default props => <TextFields />;
+import StartTabs from "./StartTabs";
+
+export default props => <StartTabs />;
 
 //<DenseTable />;
