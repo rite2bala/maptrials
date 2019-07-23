@@ -13,9 +13,4 @@ const themeName = "Orange";
 
 const newtheme = createMuiTheme({ palette, themeName });
 
-ReactDOM.render(
-  <createMuiTheme theme={newtheme}>
-    <App />
-  </createMuiTheme>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -31,6 +31,9 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     display: "none"
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2)
   }
 }));
 
@@ -163,7 +166,7 @@ export default function TextFields() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <div style={{ gridColumnEnd: "span 3" }}>
           <h1 style={{ color: "teal" }}>New request for central repository</h1>
           <form className={classes.container} autoComplete="off">
@@ -296,7 +299,7 @@ export default function TextFields() {
               className={classes.textField}
               margin="normal"
             />
-
+            <br />
             <TextField
               required
               id="date"
@@ -308,7 +311,7 @@ export default function TextFields() {
                 shrink: true
               }}
             />
-
+            <br />
             <TextField
               required
               id="Owner"
@@ -357,8 +360,9 @@ export default function TextFields() {
           </form>
           <Button
             variant="contained"
+            type="submit"
             color="primary"
-            className={classes.button}
+            className={classes.submit}
             size="inherit"
             onClick={handleClick}
           >

@@ -50,7 +50,7 @@ export default function StartTabs() {
 
   return (
     <div>
-      <Container maxWidth="lg">
+      <Container maxWidthMd>
         <Tabs
           value={value}
           onChange={handleChange}

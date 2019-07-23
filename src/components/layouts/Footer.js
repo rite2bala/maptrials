@@ -1,42 +1,40 @@
 import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { green, pink } from "@material-ui/core/colors";
-import Avatar from "@material-ui/core/Avatar";
-import FolderIcon from "@material-ui/icons/Folder";
-import PageviewIcon from "@material-ui/icons/Pageview";
-import AssignmentIcon from "@material-ui/icons/Assignment";
-import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles({
-  avatar: {
-    margin: 10
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "70vh",
+    bottom: "0",
+    postion: "fixed"
   },
-  pinkAvatar: {
-    margin: 10,
-    color: "#fff",
-    backgroundColor: pink[500]
+  main: {
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(1)
   },
-  greenAvatar: {
-    margin: 10,
-    color: "#fff",
-    backgroundColor: green[500]
+  footer: {
+    padding: theme.spacing(0),
+    marginTop: "auto",
+    backgroundColor: "white"
   }
-});
+}));
 
-export default function IconAvatars() {
+export default function StickyFooter() {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" alignItems="center">
-      <Avatar className={classes.avatar}>
-        <FolderIcon />
-      </Avatar>
-      <Avatar className={classes.pinkAvatar}>
-        <PageviewIcon />
-      </Avatar>
-      <Avatar className={classes.greenAvatar}>
-        <AssignmentIcon />
-      </Avatar>
-    </Grid>
+    <div className={classes.root}>
+      <CssBaseline />
+      <footer className={classes.footer}>
+        <Container maxWidth="sm">
+          <Typography variant="body1" />
+        </Container>
+      </footer>
+    </div>
   );
 }

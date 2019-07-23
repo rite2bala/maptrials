@@ -16,7 +16,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
-const drawerWidth = 200;
+const drawerWidth = 250;
 
 const useStyles = makeStyles(theme => ({
   root: {
