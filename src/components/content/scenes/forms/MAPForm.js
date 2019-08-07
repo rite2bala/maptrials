@@ -19,8 +19,13 @@ const useStyles = makeStyles(theme => ({
   },
   textField: {
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(3),
     width: 200
+  },
+  textField1: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(3),
+    width: 250
   },
   dense: {
     marginTop: 19
@@ -127,29 +132,6 @@ const MAPType = [
   }
 ];
 
-const Status = [
-  {
-    value: "Available",
-    label: "Available"
-  },
-  {
-    value: "Allocated",
-    label: "Allocated"
-  },
-  {
-    value: "Expired",
-    label: "Expired"
-  },
-  {
-    value: "InTransit",
-    label: "In Transit"
-  },
-  {
-    value: "Delivered",
-    label: "Delivered"
-  }
-];
-
 //const uuidv4 = require("uuid/v4");
 const today = new Date().toISOString().substring(0, 10);
 
@@ -193,138 +175,122 @@ export default function TextFields() {
           <h1 style={{ color: "teal" }}>MAP request from </h1>
           <form className={classes.container} autoComplete="off">
             <div>
-              <Grid container>
-                <Grid item xs>
-                  <TextField
-                    required
-                    id="MAPID"
-                    label="MAP ID"
-                    className={classes.textField}
-                    value={values.Product}
-                    onChange={handleChange("MAPID")}
-                    margin="normal"
-                  />
-                </Grid>
-                <Grid item xs>
-                  <TextField
-                    required
-                    id="MAPType"
-                    label="MAP Request Type"
-                    select
-                    className={classes.textField}
-                    value={values.MAPType}
-                    onChange={handleChange("MAPType")}
-                    SelectProps={{
-                      MenuProps: {
-                        className: classes.menu
-                      }
-                    }}
-                    helperText="Please select your response"
-                    margin="normal"
-                  />
-                </Grid>
-                <TextField
-                  required
-                  id="NoOfPatients"
-                  label="NoOfPatients"
-                  value={values.NoOfPatients}
-                  onChange={handleChange("NoOfPatients")}
-                  type="number"
-                  defaultValue="1"
-                  className={classes.textField}
-                  margin="normal"
-                />
-              </Grid>
-              <Divider light />
-            </div>
-            <div>
-              <Grid container>
-                <Grid item xs>
-                  <TextField
-                    required
-                    id="Countryofrequest"
-                    select
-                    label="Country of request"
-                    className={classes.textField}
-                    value={values.Country}
-                    onChange={handleChange("Countryofrequest")}
-                    SelectProps={{
-                      MenuProps: {
-                        className: classes.menu
-                      }
-                    }}
-                    helperText="Please select your response"
-                    margin="normal"
-                  >
-                    {Country.map(option => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Grid>
-                <Grid item xs>
-                  <TextField
-                    required
-                    id="CMR"
-                    label="CMR"
-                    value={values.CMR}
-                    onChange={handleChange("CMR")}
-                    className={classes.textField}
-                    margin="normal"
-                  />
-                </Grid>
-                <Grid item xs>
-                  <TextField
-                    required
-                    id="BulkMatCode"
-                    label="Bulk Material Code"
-                    value={values.BulkMatCode}
-                    onChange={handleChange("BulkMatCode")}
-                    className={classes.textField}
-                    margin="normal"
-                  />
-                </Grid>
-                <Grid item xs />
-                <TextField
-                  required
-                  id="BatchNum"
-                  label="Batch Number"
-                  value={values.BatchNum}
-                  onChange={handleChange("BatchNum")}
-                  className={classes.textField}
-                  margin="normal"
-                />
-              </Grid>
-              <Divider light />
-            </div>
+              <TextField
+                required
+                id="MAPID"
+                label="MAP ID"
+                className={classes.textField}
+                value={values.Product}
+                onChange={handleChange("MAPID")}
+                margin="normal"
+              />
 
-            <div>
-              <Grid item>
-                <TextField
-                  required
-                  id="FisherPartNum"
-                  label="Fisher Part Number"
-                  value={values.FisherPartNum}
-                  onChange={handleChange("FisherPartNum")}
-                  className={classes.textField}
-                  margin="normal"
-                />
-              </Grid>
-              <Grid item xs>
-                <TextField
-                  required
-                  id="DrugProd"
-                  label="Drug product"
-                  value={values.DrugProd}
-                  onChange={handleChange("DrugProd")}
-                  className={classes.textField}
-                  margin="normal"
-                />
-              </Grid>
-              <Divider light />
-            </div>
-            <div>
+              <TextField
+                required
+                id="MAPType"
+                select
+                label="MAPType"
+                className={classes.textField}
+                value={values.MAPType}
+                onChange={handleChange("MAPType")}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                helperText="Please select your response"
+                margin="normal"
+              >
+                {MAPType.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                required
+                id="NoOfPatients"
+                label="No. of patients"
+                value={values.NoOfPatients}
+                onChange={handleChange("NoOfPatients")}
+                type="number"
+                defaultValue="1"
+                className={classes.textField}
+                margin="normal"
+              />
+
+              <TextField
+                required
+                id="Countryofrequest"
+                select
+                label="Country of request"
+                className={classes.textField}
+                value={values.Country}
+                onChange={handleChange("Countryofrequest")}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                helperText="Please select your response"
+                margin="normal"
+              >
+                {Country.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                required
+                id="CMR"
+                label="CMR"
+                value={values.CMR}
+                onChange={handleChange("CMR")}
+                className={classes.textField}
+                margin="normal"
+              />
+
+              <TextField
+                required
+                id="BulkMatCode"
+                label="Bulk Material Code"
+                value={values.BulkMatCode}
+                onChange={handleChange("BulkMatCode")}
+                className={classes.textField}
+                margin="normal"
+              />
+
+              <TextField
+                required
+                id="BatchNum"
+                label="Batch Number"
+                value={values.BatchNum}
+                onChange={handleChange("BatchNum")}
+                className={classes.textField}
+                margin="normal"
+              />
+
+              <TextField
+                required
+                id="FisherPartNum"
+                label="Fisher part number"
+                value={values.FisherPartNum}
+                onChange={handleChange("FisherPartNum")}
+                className={classes.textField}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="DrugProd"
+                label="Drug product"
+                value={values.DrugProd}
+                onChange={handleChange("DrugProd")}
+                className={classes.textField}
+                margin="normal"
+              />
               <TextField
                 required
                 id="Strength"
@@ -343,8 +309,6 @@ export default function TextFields() {
                 className={classes.textField}
                 margin="normal"
               />
-            </div>
-            <div>
               <TextField
                 required
                 id="Quantity"
@@ -365,7 +329,6 @@ export default function TextFields() {
                 className={classes.textField}
                 margin="normal"
               />
-
               <TextField
                 required
                 id="Owner"
@@ -389,30 +352,33 @@ export default function TextFields() {
                 ))}
               </TextField>
             </div>
-            <TextField
-              required
-              id="Rationale"
-              label="Rationale"
-              multiline
-              variant="outlined"
-              rows="4"
-              value={values.Rationale}
-              onChange={handleChange("Rationale")}
-              className={classes.textField}
-              margin="normal"
-            />
-            <TextField
-              required
-              id="AddnRemarks"
-              label="Additional Remarks"
-              value={values.AddnRemarks}
-              multiline
-              variant="outlined"
-              rows="4"
-              onChange={handleChange("AddnRemarks")}
-              className={classes.textField}
-              margin="normal"
-            />
+            <div>
+              <Divider />
+              <TextField
+                required
+                id="Rationale"
+                label="Rationale"
+                multiline
+                variant="outlined"
+                rows="4"
+                value={values.Rationale}
+                onChange={handleChange("Rationale")}
+                className={classes.textField1}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="AddnRemarks"
+                label="Additional Remarks"
+                value={values.AddnRemarks}
+                multiline
+                variant="outlined"
+                rows="4"
+                onChange={handleChange("AddnRemarks")}
+                className={classes.textField1}
+                margin="normal"
+              />
+            </div>
           </form>
           <Button
             variant="contained"
