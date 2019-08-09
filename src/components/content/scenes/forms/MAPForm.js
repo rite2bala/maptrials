@@ -142,23 +142,23 @@ export default function TextFields() {
     MAPSystemIdentifier: uuidv4(),
     MAPID: "",
     MAPType: "",
-    RequestDate: "",
+    RequestDate: today,
     NoOfPatients: "",
     CountryOfRequest: "",
     CMRID: "",
-    {/*BulkMatCode: "",
+    /*BulkMatCode: "",
     BatchNum: "",
     FisherPartNum: "",
-  */}
-  Product: "",
+  */
+    Product: "",
     Strength: "",
     Molecule: "",
     Quantity: "",
     DiseaseToBeTreated: "",
-    Rationale: "",
+    RationalForRequest: "",
     Owner: "",
-    AddnRemarks: "",
-    CreateDate: today
+    AddnRemarks: "" //,
+    //   CreateDate: today
   });
 
   const handleChange = name => event => {
@@ -183,7 +183,7 @@ export default function TextFields() {
                 id="MAPID"
                 label="MAP ID"
                 className={classes.textField}
-                value={values.Product}
+                value={values.MAPID}
                 onChange={handleChange("MAPID")}
                 margin="normal"
               />
@@ -364,7 +364,7 @@ export default function TextFields() {
                 multiline
                 variant="outlined"
                 rows="4"
-                value={values.Rationale}
+                value={values.RationalForRequest}
                 onChange={handleChange("RationalForRequest")}
                 className={classes.textField1}
                 margin="normal"
