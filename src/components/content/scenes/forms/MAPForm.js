@@ -146,10 +146,11 @@ export default function TextFields() {
     NoOfPatients: "",
     CountryOfRequest: "",
     CMRID: "",
-    BulkMatCode: "",
+    {/*BulkMatCode: "",
     BatchNum: "",
     FisherPartNum: "",
-    Product: "",
+  */}
+  Product: "",
     Strength: "",
     Molecule: "",
     Quantity: "",
