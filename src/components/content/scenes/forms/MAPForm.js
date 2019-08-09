@@ -134,28 +134,30 @@ const MAPType = [
 
 //const uuidv4 = require("uuid/v4");
 const today = new Date().toISOString().substring(0, 10);
+const uuidv4 = require("uuid/v4");
 
 export default function TextFields() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    CreateDate: today,
+    MAPSystemIdentifier: uuidv4(),
     MAPID: "",
     MAPType: "",
     RequestDate: "",
     NoOfPatients: "",
-    Countryofrequest: "",
-    CMR: "",
+    CountryOfRequest: "",
+    CMRID: "",
     BulkMatCode: "",
     BatchNum: "",
     FisherPartNum: "",
-    DrugProd: "",
+    Product: "",
     Strength: "",
     Molecule: "",
     Quantity: "",
-    DiseaseCondn: "",
+    DiseaseToBeTreated: "",
     Rationale: "",
     Owner: "",
-    AddnRemarks: ""
+    AddnRemarks: "",
+    CreateDate: today
   });
 
   const handleChange = name => event => {
@@ -222,12 +224,12 @@ export default function TextFields() {
 
               <TextField
                 required
-                id="Countryofrequest"
+                id="CountryOfRequest"
                 select
                 label="Country of request"
                 className={classes.textField}
-                value={values.Country}
-                onChange={handleChange("Countryofrequest")}
+                value={values.CountryOfRequest}
+                onChange={handleChange("CountryOfRequest")}
                 SelectProps={{
                   MenuProps: {
                     className: classes.menu
@@ -245,14 +247,14 @@ export default function TextFields() {
 
               <TextField
                 required
-                id="CMR"
-                label="CMR"
-                value={values.CMR}
-                onChange={handleChange("CMR")}
+                id="CMRID"
+                label="CMR ID"
+                value={values.CMRID}
+                onChange={handleChange("CMRID")}
                 className={classes.textField}
                 margin="normal"
               />
-
+              {/* 
               <TextField
                 required
                 id="BulkMatCode"
@@ -281,13 +283,13 @@ export default function TextFields() {
                 onChange={handleChange("FisherPartNum")}
                 className={classes.textField}
                 margin="normal"
-              />
+              />*/}
               <TextField
                 required
-                id="DrugProd"
+                id="Product"
                 label="Drug product"
-                value={values.DrugProd}
-                onChange={handleChange("DrugProd")}
+                value={values.Product}
+                onChange={handleChange("Product")}
                 className={classes.textField}
                 margin="normal"
               />
@@ -322,10 +324,10 @@ export default function TextFields() {
               />
               <TextField
                 required
-                id="DiseaseCondn"
+                id="DiseaseToBeTreated"
                 label="Disease / condition"
-                value={values.DiseaseCondn}
-                onChange={handleChange("DiseaseCondn")}
+                value={values.DiseaseToBeTreated}
+                onChange={handleChange("DiseaseToBeTreated")}
                 className={classes.textField}
                 margin="normal"
               />
@@ -356,13 +358,13 @@ export default function TextFields() {
               <Divider />
               <TextField
                 required
-                id="Rationale"
-                label="Rationale"
+                id="RationalForRequest"
+                label="Rationale For Request"
                 multiline
                 variant="outlined"
                 rows="4"
                 value={values.Rationale}
-                onChange={handleChange("Rationale")}
+                onChange={handleChange("RationalForRequest")}
                 className={classes.textField1}
                 margin="normal"
               />
