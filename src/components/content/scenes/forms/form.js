@@ -129,6 +129,149 @@ const Status = [
   }
 ];
 
+const Product = [
+  {
+    value: "COSENTYX",
+    label: "COSENTYX"
+  },
+  {
+    value: "INC280",
+    label: "INC280"
+  },
+  {
+    value: "KISQALI",
+    label: "KISQALI"
+  },
+  {
+    value: "MEKINIST",
+    label: "MEKINIST"
+  },
+  {
+    value: "TAFINLAR",
+    label: "TAFINLAR"
+  },
+  {
+    value: "RYDAPT",
+    label: "RYDAPT"
+  }
+];
+
+const Strength = [
+  {
+    value: "75mg",
+    label: "75mg"
+  },
+  {
+    value: "150mg",
+    label: "150mg"
+  },
+  {
+    value: "100mg",
+    label: "100mg"
+  },
+  {
+    value: "200mg",
+    label: "200mg"
+  },
+
+  {
+    value: "30mg/ml",
+    label: "30mg/ml"
+  },
+
+  {
+    value: "2mg",
+    label: "2mg"
+  },
+
+  {
+    value: "75mg",
+    label: "75mg"
+  },
+
+  {
+    value: "25mg",
+    label: "25mg"
+  },
+
+  {
+    value: "25mg/ML",
+    label: "25mg/ML"
+  }
+];
+const Molecule = [
+  {
+    value: "Secukinumab (AIN457)",
+    label: "Secukinumab (AIN457)"
+  },
+  {
+    value: "Capmatinib",
+    label: "Capmatinib"
+  },
+  {
+    value: "Ribociclib (LEE011)",
+    label: "Ribociclib (LEE011)"
+  },
+  {
+    value: "MEKINIST",
+    label: "MEKINIST"
+  },
+  {
+    value: "Trametinib (TMT212)",
+    label: "Trametinib (TMT212)"
+  },
+  {
+    value: "Dabrafenib (DRB436)",
+    label: "Dabrafenib (DRB436)"
+  },
+  {
+    value: "Midostaurin (PKC412)",
+    label: "Midostaurin (PKC412)"
+  }
+];
+
+const MAPType = [
+  {
+    value: "IPR",
+    label: "IPR"
+  },
+  {
+    value: "PTA",
+    label: "PTA"
+  },
+  {
+    value: "COHORT",
+    label: "COHORT"
+  }
+];
+
+const Presentation = [
+  {
+    value: "PFS",
+    label: "PFS"
+  },
+  {
+    value: "FCT",
+    label: "FCT"
+  },
+  {
+    value: "100ML Solution",
+    label: "100ML Solution"
+  },
+  {
+    value: "HNGC",
+    label: "HNGC"
+  },
+  {
+    value: "SGC",
+    label: "SGC"
+  },
+  {
+    value: "50ML Solution",
+    label: "50ML Solution"
+  }
+];
+
 const uuidv4 = require("uuid/v4");
 const today = new Date().toISOString().substring(0, 10);
 
@@ -173,31 +316,95 @@ export default function TextFields() {
             <TextField
               required
               id="Product"
-              label="Product Name"
+              select
+              label="Product"
               className={classes.textField}
               value={values.Product}
               onChange={handleChange("Product")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              // helperText="Please select your response"
               margin="normal"
-            />
+            >
+              {Product.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
 
             <TextField
               required
               id="Strength"
-              label="Strength of product"
+              select
+              label="Strength"
               className={classes.textField}
               value={values.Strength}
               onChange={handleChange("Strength")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              // helperText="Please select your response"
               margin="normal"
-            />
+            >
+              {Strength.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+
             <TextField
               required
               id="Unit"
-              label="Presentation (Unit)"
+              select
+              label="Unit"
               className={classes.textField}
               value={values.Unit}
               onChange={handleChange("Unit")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              // helperText="Please select your response"
               margin="normal"
-            />
+            >
+              {Presentation.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              required
+              id="Molecule"
+              select
+              label="Molecule"
+              className={classes.textField}
+              value={values.Molecule}
+              onChange={handleChange("Molecule")}
+              SelectProps={{
+                MenuProps: {
+                  className: classes.menu
+                }
+              }}
+              // helperText="Please select your response"
+              margin="normal"
+            >
+              {Molecule.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+
             <TextField
               required
               id="Molecule"
