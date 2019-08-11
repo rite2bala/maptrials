@@ -220,12 +220,12 @@ const Molecule = [
     label: "Trametinib (TMT212)"
   },
   {
-    value: "Dabrafenib (DRB436)",
-    label: "Dabrafenib (DRB436)"
-  },
-  {
     value: "Midostaurin (PKC412)",
     label: "Midostaurin (PKC412)"
+  },
+  {
+    value: "Dabrafenib (DRB436)",
+    label: "Dabrafenib (DRB436)"
   }
 ];
 
