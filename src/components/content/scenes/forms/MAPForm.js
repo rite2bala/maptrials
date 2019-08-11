@@ -232,6 +232,39 @@ const MAPType = [
   }
 ];
 
+const Presentation = [
+  {
+    value: "PFS",
+    label: "PFS"
+  },
+  {
+    value: "FCT",
+    label: "FCT"
+  },
+  {
+    value: "100ML Solution",
+    label: "100ML Solution"
+  },
+  {
+    value: "HNGC",
+    label: "HNGC"
+  },
+  {
+    value: "SGC",
+    label: "SGC"
+  },
+  {
+    value: "50ML Solution",
+    label: "50ML Solution"
+  }
+];
+const CMRID = [
+  { value: "John", label: "John" },
+  { value: "Sherlock", label: "Sherlock" },
+  { value: "Oliver", label: "Oliver" },
+  { value: "Harry", label: "Harry" },
+  { value: "Jacob", label: "Jacob" }
+];
 //const uuidv4 = require("uuid/v4");
 const today = new Date().toISOString().substring(0, 10);
 const uuidv4 = require("uuid/v4");
@@ -250,6 +283,7 @@ export default function TextFields() {
     BatchNum: "",
     FisherPartNum: "",
   */
+    Presentation: "",
     Product: "",
     Unit: "",
     Strength: "",
@@ -350,12 +384,48 @@ export default function TextFields() {
               <TextField
                 required
                 id="CMRID"
-                label="CMR ID"
+                select
+                label="CMRID"
+                className={classes.textField}
                 value={values.CMRID}
                 onChange={handleChange("CMRID")}
-                className={classes.textField}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                helperText="Please select your response"
                 margin="normal"
-              />
+              >
+                {CMRID.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                required
+                id="Presentation"
+                select
+                label="Presentation  (Unit)"
+                className={classes.textField}
+                value={values.Presentation}
+                onChange={handleChange("Presentation")}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                helperText="Please select your response"
+                margin="normal"
+              >
+                {Presentation.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               {/* 
               <TextField
                 required
@@ -463,15 +533,6 @@ export default function TextFields() {
                 type="number"
                 defaultValue="1"
                 className={classes.textField}
-                margin="normal"
-              />
-              <TextField
-                required
-                id="Unit"
-                label="Presentation (Unit)"
-                className={classes.textField}
-                value={values.Unit}
-                onChange={handleChange("Unit")}
                 margin="normal"
               />
               <TextField
