@@ -251,6 +251,7 @@ export default function TextFields() {
     FisherPartNum: "",
   */
     Product: "",
+    Unit: "",
     Strength: "",
     Molecule: "",
     Quantity: "",
@@ -464,6 +465,15 @@ export default function TextFields() {
                 type="number"
                 defaultValue="1"
                 className={classes.textField}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="Unit"
+                label="Presentation (Unit)"
+                className={classes.textField}
+                value={values.Unit}
+                onChange={handleChange("Unit")}
                 margin="normal"
               />
               <TextField
