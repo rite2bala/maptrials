@@ -366,7 +366,6 @@ export default function TextFields() {
                 className={classes.textField}
                 margin="normal"
               />
-
               <TextField
                 required
                 id="BatchNum"
@@ -376,7 +375,6 @@ export default function TextFields() {
                 className={classes.textField}
                 margin="normal"
               />
-
               <TextField
                 required
                 id="FisherPartNum"

@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   },
   control: {
     padding: theme.spacing(2)
+  },
+  paper: {
+    padding: theme.spacing(3, 2)
   }
 }));
 
@@ -26,15 +29,32 @@ export default function SpacingGrid() {
   return (
     <Grid container className={classes.root} spacing={2}>
       <Grid container justify="center">
-        <Paper>
-          <Typography variant="h5" component="h3">
-            Hello
-          </Typography>
-        </Paper>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your
-          application.
-        </Typography>
+        <Grid key="1" item spacing={2}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5" component="h3">
+              Hello
+            </Typography>
+            <Typography component="p">Paper 1</Typography>
+          </Paper>
+        </Grid>
+
+        <Grid key="2" item spacing={2}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5" component="h3">
+              Hello
+            </Typography>
+            <Typography component="p">Paper 2</Typography>
+          </Paper>
+        </Grid>
+
+        <Grid key="3" item spacing={2}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5" component="h3">
+              Hello
+            </Typography>
+            <Typography component="p">Paper 3</Typography>
+          </Paper>
+        </Grid>
       </Grid>
     </Grid>
   );
