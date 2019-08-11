@@ -363,7 +363,7 @@ export default function TextFields() {
               required
               id="Unit"
               select
-              label="Unit"
+              label="Presentation (Unit)"
               className={classes.textField}
               value={values.Unit}
               onChange={handleChange("Unit")}
@@ -405,15 +405,6 @@ export default function TextFields() {
               ))}
             </TextField>
 
-            <TextField
-              required
-              id="Molecule"
-              label="Molecule"
-              className={classes.textField}
-              value={values.Molecule}
-              onChange={handleChange("Molecule")}
-              margin="normal"
-            />
             <TextField
               required
               id="PackSize"
