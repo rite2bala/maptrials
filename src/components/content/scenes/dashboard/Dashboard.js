@@ -27,6 +27,11 @@ export default function SpacingGrid() {
 
   return (
     <Container>
+      <Typography variant="h3" component="h2">
+        Managed Access Program - Inventory Dashboard
+      </Typography>
+      <br />
+
       <Grid container justify="space-evenly" spacing={2}>
         <Grid key="1" item spacing={1}>
           <Tile1 />
@@ -49,21 +54,23 @@ export default function SpacingGrid() {
       </Grid>
       <br />
       <br />
-      <Grid item xs="6" sm="6">
-        <Paper className={classes.paper}>
-          <Typography variant="h5" component="h2">
-            Hello
-          </Typography>
-          <Typography component="p">Paper 1</Typography>
-        </Paper>
-      </Grid>
-      <Grid item xs="6" sm="6">
-        <Paper className={classes.paper}>
-          <Typography variant="h5" component="h2">
-            Hello
-          </Typography>
-          <Typography component="p">Paper 1</Typography>
-        </Paper>
+      <Grid container justify="space-evenly" spacing={2}>
+        <Grid item xs="4" sm="6">
+          <Paper className={classes.paper}>
+            <Typography variant="h5" component="h2">
+              Hello
+            </Typography>
+            <Typography component="p">Paper 1</Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs="3" sm="6">
+          <Paper className={classes.paper}>
+            <Typography variant="h5" component="h2">
+              Hello
+            </Typography>
+            <Typography component="p">Paper 1</Typography>
+          </Paper>
+        </Grid>
       </Grid>
     </Container>
   );
