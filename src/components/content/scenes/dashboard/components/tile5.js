@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Tile1() {
+export default function Tile2() {
   // const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
 
@@ -32,7 +32,7 @@ export default function Tile1() {
         align="center"
         color="primary"
       >
-        Pending Approval
+        Open
       </Typography>
       <Divider />
       <Typography
@@ -44,6 +44,5 @@ export default function Tile1() {
         3
       </Typography>
     </Paper>
-    //write code here
   );
 }

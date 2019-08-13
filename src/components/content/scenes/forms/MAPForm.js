@@ -192,31 +192,6 @@ const Country = [
     label: "Others"
   }
 ];
-const Source = [
-  {
-    value: "GCS",
-    label: "GCS"
-  },
-  {
-    value: "NTO",
-    label: "NTO"
-  }
-];
-
-const Owner = [
-  {
-    value: "HCP",
-    label: "HCP"
-  },
-  {
-    value: "Patient",
-    label: "Patient"
-  },
-  {
-    value: "CPO",
-    label: "CPO"
-  }
-];
 const MAPType = [
   {
     value: "IPR",
